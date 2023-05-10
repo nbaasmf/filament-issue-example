@@ -34,7 +34,8 @@ class PostForm extends Component implements HasForms
             Select::make('category_id')
                 ->relationship('category', 'name')
                 ->searchable()
-                ->preload(),
+                ->preload()
+                ->afterStateUpdated(fn (callable $set) => $set('subcategory_id', null)),
             Select::make('subcategory_id')
                 ->relationship('subcategory', 'name', fn ($query, $get) => $query->where('category_id', $get('category_id')))
                 ->searchable()
