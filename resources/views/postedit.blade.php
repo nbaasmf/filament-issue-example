@@ -1,3 +1,5 @@
 <x-base-layout>
-    <livewire:post-form :post="$post" />
+    <div>
+        <livewire:post-form :post="$post" />
+    </div>
 </x-base-layout>
